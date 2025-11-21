@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Device {
+    public: 
+    Device () {
+        cout<<"this is a device"<<endl;
+    }
+};
+
+class Computer: public Device {
+    public : 
+    Computer() {
+        cout<<"This is a computer"<<endl;
+    }
+};
+
+class LinuxBased: public Computer {
+    public: 
+    LinuxBased() {
+        cout<<"I am on arch linux";
+    }
+};
+
+int main() {
+    LinuxBased arch;
+    
+    return 0;
+}
+
+// vehicle -> car -> sportsCar
