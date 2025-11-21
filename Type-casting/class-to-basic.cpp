@@ -30,12 +30,12 @@ int main() {
     cin>> a >>b;
 
     Time t1(a,b);
-    duration = t1;
+    duration = t1;  // calling the type cast function
     cout<< "The duration is: "<<duration<<endl;
 
     cout<< "Second method operator overloading";
 
-    duration = t1.operator int();
+    duration = t1.operator int();  // calling the typecast function
 
     cout<< "total minutes are : "<< duration;
     
