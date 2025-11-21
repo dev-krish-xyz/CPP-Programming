@@ -17,6 +17,10 @@ class Distance {
         cout<< feet<<" "<<inch;
 
         
+
+        
+
+        
     }
 
 

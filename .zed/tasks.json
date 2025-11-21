@@ -1,0 +1,14 @@
+[
+  {
+    "id": "run_cpp",
+    "label": "Run C++",
+    "command": "g++",
+    "args": ["-std=c++20", "${file}", "-o", "${file_base_name}"],
+    "run": {
+      "command": "./${file_base_name}"
+    }
+  }
+]
+
+
+
