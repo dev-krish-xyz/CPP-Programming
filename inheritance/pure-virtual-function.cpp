@@ -10,7 +10,7 @@ class Vehicle{
 };
 Vehicle::~Vehicle () {
 
-    cout<< "Pure virtual destructor called"<<endl;
+    cout<< "Vehicle Pure virtual destructor called"<<endl;
 }
 
 class Car : public Vehicle {
