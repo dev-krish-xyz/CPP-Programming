@@ -3,30 +3,43 @@ using namespace std;
 
 class Student {
 private:
-    int rollNo;         // private
-    string name;        // private
+    int rollNo;
+    string name;
 
 public:
-    // Public setter
-    void setData(int r, string n)...
-Read more
-ptrSet)(int, string) = &Student::setData;
-    void (Student::ptrDisplay)() = &Student::display;
-    int (Student::ptrGet)() = &Student::getRollNo;
+    void setData(int r, const string &n) {
+        rollNo = r;
+        name = n;
+    }
 
-      Student s1;
+    void display() {
+        cout << "Name: " << name << ", Roll No: " << rollNo << endl;
+    }
+
+    int getRollNo() {
+        return rollNo;
+    }
+};
+
+int main() {
+    // Member function pointers
+    void (Student::*ptrSet)(int, const string&) = &Student::setData;
+    void (Student::*ptrDisplay)() = &Student::display;
+    int (Student::*ptrGet)() = &Student::getRollNo;
+
+    Student s1;
 
     // Use member function pointer to set and display private data
-    (s1.ptrSet)(101, "Alice");
-    (s1.ptrDisplay)();
-    cout << "Roll No via getter pointer: " << (s1.ptrGet)() << endl;
+    (s1.*ptrSet)(101, "Alice");
+    (s1.*ptrDisplay)();
+    cout << "Roll No via getter pointer: " << (s1.*ptrGet)() << endl;
 
-      // Using object pointer
-    Student ptr = new Student;
-    (ptr->ptrSet)(102, "Bob");
-    (ptr->ptrDisplay)();
-    cout << "Roll No via getter pointer: " << (ptr->ptrGet)() << endl;
+    // Using object pointer
+    Student *ptr = new Student;
+    (ptr->*ptrSet)(102, "Bob");
+    (ptr->*ptrDisplay)();
+    cout << "Roll No via getter pointer: " << (ptr->*ptrGet)() << endl;
 
     delete ptr;
-      return 0;
+    return 0;
 }
